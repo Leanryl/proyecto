@@ -8,8 +8,7 @@ class Sucursal extends CI_Controller {
 	}
 	public function index()
 	{
-		$listarsucursal=$this->sucursal_m->listasucursal();
-		$data['sucursal'] = $listarsucursal;
+		$data['sucursal'] = $this->sucursal_m->listasucursal();
 		$this->load->view('inc/header');
 		$this->load->view('sucursal/sucursal_v', $data);
 		$this->load->view('inc/footer');

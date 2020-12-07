@@ -112,6 +112,14 @@
       <?php
         echo form_close();
       ?>
+      <?php 
+        $atributos = array('class' => 'form-group', 'id' => 'cancelar');
+        echo form_open_multipart('producto/lista', $atributos);
+      ?>
+        <button class="btn btn-lg btn-primary btn-block" style="margin-top: 1px;">Mis Pedidos</button>
+      <?php
+        echo form_close();
+      ?>
     </div>
 </div>
 <style type="text/css">
