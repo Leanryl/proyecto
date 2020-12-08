@@ -80,11 +80,15 @@ class Pedido extends CI_Controller {
 		$this->load->view('pedido/lista_v', $data);
 		$this->load->view('inc/footer');
 	}
-	/*
+	public function prueba()
+	{
+
+	}
+	
 	public function recibo(){
 		redirect('pedido/lista', 'refresh');
 	}
-	*/
+	
 	public function index()
 	{
 		$id=$_POST['id'];
