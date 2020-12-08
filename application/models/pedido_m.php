@@ -8,6 +8,17 @@ class Pedido_m extends CI_Model{
 		$this->db->where('estado', 1);
 		return $this->db->get();
 	}
+	public function reportesucursal($id){
+		$this->db->select("u.nombre as cliente,u.idUsuario, s.nombre as sucursal, pr.nombre as producto, pr.precio, dp.cantidad, p.montoTotal, p.fechaPedido, dv.nombre as delivery");
+		$this->db->from("detallepedido dp");
+		$this->db->join("pedido p","dp.idpedido = p.idpedido");
+		$this->db->join("producto pr","dp.idProducto = pr.idProducto");
+		$this->db->join("delivery dv","dp.iddelivery = dv.iddelivery");
+		$this->db->join("usuario u","p.idUsuario = u.idUsuario");
+		$this->db->join("sucursal s","pr.idSucursal = s.idSucursal");
+		$this->db->where("s.idSucursal",$id);
+		return $this->db->get();
+	}
 	public function getRecibo($id){
 		$this->db->select("u.nombre as cliente,u.idUsuario, s.nombre as sucursal, pr.nombre as producto, pr.precio, dp.cantidad, p.montoTotal, p.fechaPedido, dv.nombre as delivery");
 		$this->db->from("detallepedido dp");
